@@ -1,0 +1,13 @@
+FROM nlevel/baseruby:latest
+
+ENV RUBYDEV_APP_ROOT=/opt/utilities/rubydev25 \
+    RUBY_INSTALL_VERSION=2.5.1 \
+    BUNDLER_INSTALL_VERSION=1.16.3
+
+RUN mkdir -p $RUBYDEV_APP_ROOT
+COPY . $RUBYDEV_APP_ROOT
+
+WORKDIR $RUBYDEV_APP_ROOT
+RUN $RUBYDEV_APP_ROOT/setup.sh
+
+CMD [ "/sbin/my_init" ]
