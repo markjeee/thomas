@@ -1,8 +1,10 @@
 require 'docker_task'
+require 'thomas_task'
 
 module Thomas
   autoload :Config, 'thomas/config'
   autoload :Helper, 'thomas/helper'
+  autoload :Task, 'thomas/task'
 
   def self.config
     if defined?(@config)

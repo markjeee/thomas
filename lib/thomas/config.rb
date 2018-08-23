@@ -39,61 +39,29 @@ module Thomas
     end
 
     def self.symbolize_keys(v)
-      case v
-      when Hash
-        v.inject({ }) do |h, (k, v)|
-          new_v = symbolize_keys(v)
-
-          case k
-          when String
-            # NOTE: This is intentional, so we get the side-effect
-            # of accessing keys as either string or symbol.
-            #
-            h[k.to_sym] = h[k.to_s] = new_v
-          else
-            h[k] = new_v
-          end
-
-          h
-        end
-      when Array
-        v.collect { |va| symbolize_keys(va) }
-      else
-        v
-      end
+      Thomas::Helper.symbolize_keys(v)
     end
 
     def self.simplify_keys(v, to = :string)
-      case v
-      when Hash
-        v.inject({ }) do |h, (k, v)|
-          new_v = simplify_keys(v, to)
-
-          case k
-          when String
-            h[k] = new_v if to == :string
-          when Symbol
-            h[k] = new_v if to == :symbol
-          else
-            h[k] = new_v
-          end
-
-          h
-        end
-      when Array
-        v.collect { |va| simplify_keys(va, to) }
-      else
-        v
-      end
+      Thomas::Helper.simplify_keys(v, to)
     end
 
     def simplify_keys(v); self.class.simplify_keys(v); end
     def symbolize_keys(v); self.class.symbolize_keys(v); end
 
     def finalize_paths(path)
-      path = path.gsub(/\$thomas_root/, THOMAS_ROOT_PATH)
+      path = path.gsub(/\$thomas_root/, thomas_root_path)
+      path = path.gsub(/\$thomas_working/, thomas_working_path)
 
       File.expand_path(path)
+    end
+
+    def thomas_root_path
+      self[:thomas_root] || THOMAS_ROOT_PATH
+    end
+
+    def thomas_working_path
+      self[:thomas_working] || THOMAS_ROOT_PATH
     end
 
     def deep_merge(other)

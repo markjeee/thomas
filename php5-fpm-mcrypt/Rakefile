@@ -1,0 +1,9 @@
+# load our own booting sequence
+require File.expand_path('../../config/boboot', __FILE__)
+Boboot.require_boot!
+
+require 'rake'
+require 'rake/task'
+require 'thomas'
+
+ThomasTask::Php5FpmMcrypt.create!

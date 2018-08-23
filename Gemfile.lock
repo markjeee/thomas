@@ -6,7 +6,7 @@ GEM
       sequel
       sqlite3
       thor
-    docker_task (0.1.4.alpha.1.g4e39400)
+    docker_task (0.1.5.alpha.2.gfb5523c)
       rake
     minitest (5.11.3)
     rake (12.3.1)
@@ -19,7 +19,7 @@ PLATFORMS
 
 DEPENDENCIES
   cableguy (~> 0.5.1.pre14)!
-  docker_task (= 0.1.4.alpha.1.g4e39400)!
+  docker_task (= 0.1.5.alpha.2.gfb5523c)!
   minitest
   rake
 

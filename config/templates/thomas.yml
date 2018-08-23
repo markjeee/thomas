@@ -1,7 +1,6 @@
 baseimage:
   docker:
-    image_name: nlevel/baseimage
-    container_name: baseimage
+    image_name: thomas.baseimage
     push_repo: nlevel/baseimage
     push_mirrors:
       gcr: asia.gcr.io/nlevel-164003/nlevel/baseimage
@@ -9,68 +8,61 @@ baseimage:
 
 baseruby:
   docker:
-    image_name: nlevel/baseruby
-    container_name: baseruby
-    bash: su -l rubydev
+    image_name: thomas.baseruby
     push_repo: nlevel/baseruby
     push_mirrors:
       gcr: asia.gcr.io/nlevel-164003/nlevel/baseruby
       glr: glr.markjeee.com/nlevel/baseruby
+    bash: su -l rubydev
 
   rubydev25:
     docker:
-      image_name: nlevel/rubydev25
-      container_name: rubydev25
-      bash: su -l rubydev
+      image_name: thomas.rubydev25
       push_repo: nlevel/rubydev25
       push_mirrors:
         gcr: asia.gcr.io/nlevel-164003/nlevel/rubydev25
         glr: glr.markjeee.com/nlevel/rubydev25
+      bash: su -l rubydev
 
   rubydev24:
     docker:
-      image_name: nlevel/rubydev24
-      container_name: rubydev24
-      bash: su -l rubydev
+      image_name: thomas.rubydev24
       push_repo: nlevel/rubydev24
       push_mirrors:
         gcr: asia.gcr.io/nlevel-164003/nlevel/rubydev24
         glr: glr.markjeee.com/nlevel/rubydev24
+      bash: su -l rubydev
 
   rubydev23:
     docker:
-      image_name: nlevel/rubydev23
-      container_name: rubydev23
-      bash: su -l rubydev
+      image_name: thomas.rubydev23
       push_repo: nlevel/rubydev23
       push_mirrors:
         gcr: asia.gcr.io/nlevel-164003/nlevel/rubydev23
         glr: glr.markjeee.com/nlevel/rubydev23
+      bash: su -l rubydev
 
   rubydev22:
     docker:
-      image_name: nlevel/rubydev22
-      container_name: rubydev22
-      bash: su -l rubydev
+      image_name: thomas.rubydev22
       push_repo: nlevel/rubydev22
       push_mirrors:
         gcr: asia.gcr.io/nlevel-164003/nlevel/rubydev22
         glr: glr.markjeee.com/nlevel/rubydev22
+      bash: su -l rubydev
 
   rubydev19:
     docker:
-      image_name: nlevel/rubydev19
-      container_name: rubydev19
-      bash: su -l rubydev
+      image_name: thomas.rubydev19
       push_repo: nlevel/rubydev19
       push_mirrors:
         gcr: asia.gcr.io/nlevel-164003/nlevel/rubydev19
         glr: glr.markjeee.com/nlevel/rubydev19
+      bash: su -l rubydev
 
 squidy:
   docker:
-    image_name: nlevel/squidy
-    container_name: squidy
+    image_name: thomas.squidy
     push_repo: nlevel/squidy
     push_mirrors:
       gcr: asia.gcr.io/nlevel-164003/nlevel/squidy
@@ -84,8 +76,7 @@ squidy:
 
 konsol:
   docker:
-    image_name: nlevel/konsol
-    container_name: konsol
+    image_name: thomas.konsol
     push_repo: nlevel/konsol
     push_mirrors:
       gcr: asia.gcr.io/nlevel-164003/nlevel/konsol
@@ -108,8 +99,7 @@ konsol:
 
 reddys:
   docker:
-    image_name: nlevel/reddys
-    container_name: reddys
+    image_name: thomas.reddys
     push_repo: nlevel/reddys
     push_mirrors:
       gcr: asia.gcr.io/nlevel-164003/nlevel/reddys
@@ -121,8 +111,7 @@ reddys:
 
 gitti:
   docker:
-    image_name: nlevel/gitti
-    container_name: gitti
+    image_name: thomas.gitti
     push_repo: nlevel/gitti
     push_mirrors:
       gcr: asia.gcr.io/nlevel-164003/nlevel/gitti
@@ -136,3 +125,12 @@ gitti:
     private_key: '~/.ssh/some_private_key'
     git_server: 'git@some_git_server'
     repos:
+
+php5-fpm-mcrypt:
+  docker:
+    image_name: thomas.php5-fpm-mcrypt
+    push_repo: nlevel/php
+    push_tag: 5-fpm-mcrypt
+    push_mirrors:
+      gcr: asia.gcr.io/nlevel-164003/nlevel/php
+      glr: glr.markjeee.com/nlevel/php
